@@ -46,5 +46,28 @@
       "planning_model": "local",
       "planning_hint": "MOCK_PLAN: break goal into small, testable steps; ensure README note; write log."
     }
+  },
+  "quality": {
+    "ok": true,
+    "checks": {
+      "ruff": {
+        "cmd": "ruff check .",
+        "code": 0,
+        "out": "All checks passed!\n",
+        "err": ""
+      },
+      "black": {
+        "cmd": "black --check .",
+        "code": 0,
+        "out": "",
+        "err": "All done! \\u2728 \\U0001f370 \\u2728\n19 files would be left unchanged.\n"
+      },
+      "mypy": {
+        "cmd": "mypy .",
+        "code": 0,
+        "out": "Success: no issues found in 19 source files\n",
+        "err": ""
+      }
+    }
   }
 }
