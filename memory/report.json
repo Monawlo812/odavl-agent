@@ -48,24 +48,24 @@
     }
   },
   "quality": {
-    "ok": true,
+    "ok": false,
     "checks": {
       "ruff": {
         "cmd": "ruff check .",
         "code": 0,
-        "out": "All checks passed!\n",
+        "out": "Found 1 error (1 fixed, 0 remaining).\n",
         "err": ""
       },
       "black": {
         "cmd": "black --check .",
-        "code": 0,
+        "code": 1,
         "out": "",
-        "err": "All done! \\u2728 \\U0001f370 \\u2728\n19 files would be left unchanged.\n"
+        "err": "would reformat C:\\odavl_agent\\tools\\gh_pr.py\n\nOh no! \\U0001f4a5 \\U0001f494 \\U0001f4a5\n1 file would be reformatted, 19 files would be left unchanged.\n"
       },
       "mypy": {
         "cmd": "mypy .",
         "code": 0,
-        "out": "Success: no issues found in 19 source files\n",
+        "out": "Success: no issues found in 20 source files\n",
         "err": ""
       }
     }
