@@ -1,0 +1,8 @@
+goal: "Standardize logging and reduce noise by 30% (initial sandbox)"
+repos: []   # لاحقًا سنربط GitHub؛ الآن تشغيل محلي فقط
+constraints:
+  - "no downtime"
+  - "backwards compatible"
+acceptance:
+  - "README updated with logging plan note"
+  - "log file written"

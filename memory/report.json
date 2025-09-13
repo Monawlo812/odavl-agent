@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "results": [
+    {
+      "ok": true,
+      "action": "append_readme_note",
+      "path": "README.md",
+      "model": "local"
+    },
+    {
+      "ok": true,
+      "action": "append_readme",
+      "path": "README.md",
+      "model": "local"
+    },
+    {
+      "ok": true,
+      "action": "write_log",
+      "path": "memory/agent.log",
+      "model": "local"
+    }
+  ],
+  "plan": {
+    "title": "[Odavl] Standardize logging and reduce noise by 30% (initial sandbox)",
+    "goal": "Standardize logging and reduce noise by 30% (initial sandbox)",
+    "steps": [
+      {
+        "action": "append_readme_note",
+        "path": "README.md",
+        "note": "Planned: unify logging levels & reduce noise by ~30%."
+      },
+      {
+        "action": "append_readme",
+        "path": "README.md"
+      },
+      {
+        "action": "write_log",
+        "path": "memory/agent.log"
+      }
+    ],
+    "acceptance": [
+      "README updated with logging plan note",
+      "log file written"
+    ],
+    "meta": {
+      "planning_model": "local"
+    }
+  }
+}

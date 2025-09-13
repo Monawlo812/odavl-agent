@@ -1,0 +1,8 @@
+router:
+  rules:
+    - when: "planning_or_high_risk"   # للتخطيط أو المخاطر العالية
+      use: "gpt-4.1"
+    - when: "coding"                  # لتعديلات الكود العادية
+      use: "deepseek-coder"
+    - when: "offline"                 # وضع بلا إنترنت/محلي
+      use: "local"

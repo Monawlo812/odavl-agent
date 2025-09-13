@@ -1,0 +1,16 @@
+runtime:
+  env: "dev"
+  dry_run: true
+  repo_allowlist: []
+providers:
+  llm:
+    name: "router"
+    endpoint: ""
+    api_key: "env:LLM_API_KEY"
+integrations:
+  github:
+    app_id: "env:GITHUB_APP_ID"
+    installation_id: "env:GITHUB_INSTALLATION_ID"
+    private_key_pem: "env:GITHUB_APP_PRIVATE_KEY_PEM"
+policies:
+  auto_merge_low_risk: true
