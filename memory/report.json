@@ -58,14 +58,14 @@
       },
       "black": {
         "cmd": "black --check .",
-        "code": 1,
+        "code": 0,
         "out": "",
-        "err": "would reformat C:\\odavl_agent\\providers\\llm.py\nwould reformat C:\\odavl_agent\\tools\\gh_pr.py\n\nOh no! \\U0001f4a5 \\U0001f494 \\U0001f4a5\n2 files would be reformatted, 18 files would be left unchanged.\n"
+        "err": "All done! \\u2728 \\U0001f370 \\u2728\n20 files would be left unchanged.\n"
       },
       "mypy": {
         "cmd": "mypy .",
         "code": 1,
-        "out": "providers\\llm.py:7: error: Library stubs not installed for \"requests\"  [import-untyped]\nproviders\\llm.py:7: note: Hint: \"python3 -m pip install types-requests\"\nproviders\\llm.py:7: note: (or run \"mypy --install-types\" to install all missing stub packages)\nproviders\\llm.py:7: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports\ntools\\gh_pr.py:12: error: Item \"TextIO\" of \"TextIO | Any\" has no attribute \"reconfigure\"  [union-attr]\ntools\\gh_pr.py:13: error: Item \"TextIO\" of \"TextIO | Any\" has no attribute \"reconfigure\"  [union-attr]\nFound 3 errors in 2 files (checked 20 source files)\n",
+        "out": "tools\\gh_pr.py:11: error: Item \"TextIO\" of \"TextIO | Any\" has no attribute \"reconfigure\"  [union-attr]\ntools\\gh_pr.py:12: error: Item \"TextIO\" of \"TextIO | Any\" has no attribute \"reconfigure\"  [union-attr]\nFound 2 errors in 1 file (checked 20 source files)\n",
         "err": ""
       }
     }
