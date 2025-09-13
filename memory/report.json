@@ -43,7 +43,8 @@
       "log file written"
     ],
     "meta": {
-      "planning_model": "local"
+      "planning_model": "local",
+      "planning_hint": "MOCK_PLAN: break goal into small, testable steps; ensure README note; write log."
     }
   }
 }
