@@ -120,3 +120,9 @@ This repo will host the orchestrator, agents, tools, policies, and configs.
 
 > Odavl Agent: local run ✓ (coding via: local).
 > LLM: [LLM_ERROR] 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions
+
+> PLAN: Planned: unify logging levels & reduce noise by ~30%.
+> LLM: MOCK_CODE: small diff; safe change; note in README.
+
+> Odavl Agent: local run ✓ (coding via: local).
+> LLM: MOCK_CODE: small diff; safe change; note in README.

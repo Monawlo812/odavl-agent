@@ -44,7 +44,7 @@
     ],
     "meta": {
       "planning_model": "local",
-      "planning_hint": "[LLM_ERROR] 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      "planning_hint": "MOCK_PLAN: plan steps; update README; write log."
     }
   },
   "quality": {
