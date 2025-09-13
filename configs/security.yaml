@@ -1,0 +1,11 @@
+permit_paths:
+  - "README.md"
+  - "memory/"
+protected_paths:
+  - ".git/"
+  - "configs/"
+  - "policies/"
+  - "orchestrator/"
+  - "agents/"
+  - "tools/"
+kill_switch: "memory/STOP"   # لو الملف موجود، يتوقف الوكيل فورًا

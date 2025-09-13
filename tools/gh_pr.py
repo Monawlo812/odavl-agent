@@ -8,8 +8,8 @@ import urllib.request
 
 # اجبر إخراج الكونسول على UTF-8
 try:
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+    getattr(sys.stdout, "reconfigure", lambda **k: None)(encoding="utf-8")
+    getattr(sys.stderr, "reconfigure", lambda **k: None)(encoding="utf-8")
 except Exception:
     pass
 

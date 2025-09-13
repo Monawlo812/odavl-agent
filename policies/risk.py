@@ -1,8 +1,10 @@
-from typing import Dict, Any
+from typing import Any
+
 
 class RiskScorer:
-    def __init__(self, cfg: Dict[str, Any]):
+    def __init__(self, cfg: dict[str, Any]):
         self.cfg = cfg
-    def score(self, report: Dict[str, Any]) -> Dict[str, Any]:
+
+    def score(self, report: dict[str, Any]) -> dict[str, Any]:
         # طالما التعديلات محلية وبسيطة -> مخاطرة منخفضة
         return {"level": "low", "reasons": ["local-only", "small-diff"]}

@@ -1,0 +1,22 @@
+[tool.black]
+line-length = 100
+target-version = ["py311","py313"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+fix = true
+
+[tool.ruff.lint]
+# قواعد أساسية جيدة: أخطاء نمطية، استيرادات، ترقية بايثون
+select = ["E","F","I","UP"]
+# تجاهل طول السطر لأن black يعتني به
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+ignore_missing_imports = true
+disallow_untyped_defs = false
+check_untyped_defs = true
+no_implicit_optional = true

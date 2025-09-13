@@ -1,9 +1,13 @@
 from __future__ import annotations
-from typing import Dict, Any, List
-import json, sys, os
 
-def evaluate(report: Dict[str, Any], policy: Dict[str, Any]) -> Dict[str, Any]:
-    violations: List[str] = []
+import json
+import os
+import sys
+from typing import Any
+
+
+def evaluate(report: dict[str, Any], policy: dict[str, Any]) -> dict[str, Any]:
+    violations: list[str] = []
     # 1) نجاح التنفيذ العام
     if not report.get("success", False):
         violations.append("Pipeline did not complete successfully.")
@@ -32,7 +36,13 @@ def evaluate(report: Dict[str, Any], policy: Dict[str, Any]) -> Dict[str, Any]:
         if not (readme_ok and plan_step_done):
             violations.append("README plan note missing.")
 
-    # 4) تحقق من وجود ملف السجل
+    # 4) فحوصات الجودة (ruff/black/mypy)
+    if policy.get("require_quality_pass", False):
+        q = report.get("quality", {})
+        if not q or not q.get("ok", False):
+            violations.append("Quality checks failed.")
+
+    # 5) تحقق من وجود ملف السجل
     if policy.get("require_log_file", False):
         log_step_done = any(
             (r.get("path") == "memory/agent.log" and r.get("ok") is True)
@@ -43,6 +53,7 @@ def evaluate(report: Dict[str, Any], policy: Dict[str, Any]) -> Dict[str, Any]:
 
     return {"violations": violations, "changed_paths": changed_paths}
 
+
 def main():
     if len(sys.argv) < 3:
         print("Usage: python -m policies.gate <report.json> <policy.json>")
@@ -51,9 +62,9 @@ def main():
     if not os.path.exists(report_path) or not os.path.exists(policy_path):
         print("Report or policy file not found.")
         sys.exit(2)
-    with open(report_path, "r", encoding="utf-8") as f:
+    with open(report_path, encoding="utf-8") as f:
         report = json.load(f)
-    with open(policy_path, "r", encoding="utf-8") as f:
+    with open(policy_path, encoding="utf-8") as f:
         policy = json.load(f)
     outcome = evaluate(report, policy)
     if outcome["violations"]:
@@ -65,6 +76,7 @@ def main():
         print("✅ Gate PASSED")
         print("Changed files:", ", ".join(outcome["changed_paths"]))
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()

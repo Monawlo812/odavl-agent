@@ -1,5 +1,6 @@
 {
   "require_readme_plan_note": true,
   "require_log_file": true,
-  "max_changed_files": 10
+  "max_changed_files": 10,
+  "require_quality_pass": true
 }

@@ -1,16 +1,20 @@
 from __future__ import annotations
-from typing import Optional, Dict, Any
-import os, yaml
+
+import os
+from typing import Any
+
+import yaml
+
 
 class LLMRouter:
-    def __init__(self, cfg: Dict[str, Any]):
+    def __init__(self, cfg: dict[str, Any]):
         self.cfg = cfg
         self.models_cfg = self._load_models_cfg()
 
-    def _load_models_cfg(self) -> Dict[str, Any]:
+    def _load_models_cfg(self) -> dict[str, Any]:
         path = os.path.join(os.path.dirname(__file__), "..", "configs", "models.yaml")
         if os.path.exists(path):
-            with open(path, "r", encoding="utf-8") as f:
+            with open(path, encoding="utf-8") as f:
                 return yaml.safe_load(f) or {}
         return {}
 
@@ -25,7 +29,7 @@ class LLMRouter:
         # افتراضي
         return "deepseek-coder"
 
-    def _rule(self, when: str) -> Optional[str]:
+    def _rule(self, when: str) -> str | None:
         rules = (self.models_cfg.get("router") or {}).get("rules") or []
         for r in rules:
             if r.get("when") == when:

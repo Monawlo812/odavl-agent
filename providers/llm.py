@@ -18,6 +18,7 @@ class LLMProvider:
       LLM_TIMEOUT=30  (ثواني)
       LLM_DRY_RUN=1 لتعطيل الاستدعاء الفعلي
     """
+
     def __init__(self, cfg: dict[str, Any]) -> None:
         self.cfg = cfg
         self.provider = os.getenv("LLM_PROVIDER", "mock").lower()
@@ -65,13 +66,15 @@ class LLMProvider:
             "temperature": 0.2,
         }
         try:
-            resp = requests.post(url, headers=headers, data=json.dumps(payload), timeout=self.timeout)
+            resp = requests.post(
+                url, headers=headers, data=json.dumps(payload), timeout=self.timeout
+            )
             resp.raise_for_status()
             data = resp.json()
             # متوافق مع OpenAI/DeepSeek (تحت choices[0].message.content)
-            return (data.get("choices", [{}])[0]
-                        .get("message", {})
-                        .get("content", "")
-                        .strip() or "[empty]")
+            return (
+                data.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
+                or "[empty]"
+            )
         except Exception as e:
             return f"[LLM_ERROR] {e}"
