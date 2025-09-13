@@ -30,3 +30,9 @@ This repo will host the orchestrator, agents, tools, policies, and configs.
 
 > Odavl Agent: local run ✓ (coding via: local).
 > LLM: MOCK_CODE: apply small, reversible change; update README; keep diff minimal.
+
+> PLAN: Planned: unify logging levels & reduce noise by ~30%.
+> LLM: MOCK_CODE: apply small, reversible change; update README; keep diff minimal.
+
+> Odavl Agent: local run ✓ (coding via: local).
+> LLM: MOCK_CODE: apply small, reversible change; update README; keep diff minimal.
